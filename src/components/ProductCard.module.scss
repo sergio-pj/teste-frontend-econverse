@@ -1,0 +1,123 @@
+.card {
+  display: grid;
+  gap: 14px;
+  padding: 12px 12px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(231, 231, 234, 0.85);
+  box-shadow: var(--shadow-card);
+}
+
+.content {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.imageWrap {
+  display: grid;
+  place-items: center;
+  min-height: 212px;
+  padding: 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fbfbff 0%, #f1f4ff 100%);
+}
+
+.imageWrap img {
+  width: min(154px, 72%);
+  max-height: 176px;
+  object-fit: contain;
+}
+
+.info {
+  display: grid;
+  gap: 6px;
+}
+
+.info h3 {
+  min-height: 52px;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.info p {
+  min-height: 52px;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.previousPrice {
+  color: #8f8f99;
+  font-size: 0.88rem;
+  text-decoration: line-through;
+}
+
+.currentPrice {
+  font-size: 1.18rem;
+  line-height: 1.1;
+}
+
+.installment {
+  color: #5c5f69;
+  font-size: 0.76rem;
+}
+
+.shipping {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.buyButton {
+  min-height: 40px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.74rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 14px;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .imageWrap {
+    min-height: 170px;
+    padding: 14px;
+  }
+
+  .imageWrap img {
+    width: min(138px, 66%);
+    max-height: 146px;
+  }
+
+  .info h3 {
+    min-height: auto;
+    font-size: 0.96rem;
+  }
+
+  .info p {
+    min-height: auto;
+    font-size: 0.88rem;
+  }
+
+  .currentPrice {
+    font-size: 1.5rem;
+  }
+
+  .buyButton {
+    min-height: 44px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,275 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(231, 231, 234, 0.8);
+}
+
+.topbar {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbarContent,
+.mainBar,
+.navigation ul {
+  width: min(calc(100% - 32px), var(--container));
+  margin: 0 auto;
+}
+
+.topbarContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.benefit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-muted);
+  font-size: 0.84rem;
+}
+
+.benefit strong {
+  color: var(--color-primary);
+}
+
+.benefitIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary-deep);
+}
+
+.benefitIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.benefitIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mainBar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 0;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 139px;
+  height: auto;
+  display: block;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.search input {
+  width: 100%;
+  height: 56px;
+  padding: 0 56px 0 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #f4f5fb;
+  color: var(--color-text);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: rgba(63, 77, 184, 0.35);
+  transform: translateY(-1px);
+}
+
+.searchIcon {
+  position: absolute;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  color: var(--color-muted);
+}
+
+.searchIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions button {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-primary-deep);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.actions button:hover {
+  background: #f4f5fb;
+  transform: translateY(-1px);
+}
+
+.actions svg,
+.actionIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.navigation {
+  border-top: 1px solid rgba(231, 231, 234, 0.75);
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  overflow-x: auto;
+}
+
+.navigation a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: #60616c;
+}
+
+.navigationIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.navigationHighlight {
+  color: var(--color-primary) !important;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .topbarContent {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mainBar {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    justify-self: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    position: static;
+  }
+
+  .topbar {
+    display: none;
+  }
+
+  .mainBar,
+  .navigation ul {
+    width: min(calc(100% - 24px), var(--container));
+  }
+
+  .mainBar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'logo actions'
+      'search search';
+    gap: 14px;
+    padding: 16px 0 12px;
+  }
+
+  .logo {
+    grid-area: logo;
+    justify-self: start;
+  }
+
+  .logo img {
+    width: 122px;
+  }
+
+  .search {
+    grid-area: search;
+  }
+
+  .search input {
+    height: 50px;
+    padding-left: 18px;
+  }
+
+  .actions {
+    grid-area: actions;
+    justify-self: end;
+    gap: 2px;
+  }
+
+  .actions button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navigation {
+    border-top: 0;
+  }
+
+  .navigation ul {
+    gap: 10px;
+    padding: 8px 0 14px;
+    scrollbar-width: none;
+  }
+
+  .navigation ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navigation a {
+    padding: 9px 14px;
+    border: 1px solid rgba(231, 231, 234, 0.9);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 0.74rem;
+  }
+}

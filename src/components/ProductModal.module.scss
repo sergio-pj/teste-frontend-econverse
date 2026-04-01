@@ -1,0 +1,170 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(28, 31, 42, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  position: relative;
+  width: min(770px, 100%);
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 30px;
+  padding: 30px 34px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 30px 60px rgba(15, 20, 33, 0.24);
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: transparent;
+  color: #8a8f98;
+  font-size: 1.45rem;
+}
+
+.media {
+  display: grid;
+  place-items: center;
+  min-height: 250px;
+  border-right: 1px solid #d9dbe3;
+  padding-right: 24px;
+  background: transparent;
+}
+
+.media img {
+  width: min(190px, 92%);
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.content {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding-top: 10px;
+}
+
+.content h2 {
+  max-width: 360px;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.content strong {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.previousPrice {
+  color: #7c818d;
+  font-size: 0.95rem;
+  text-decoration: line-through;
+}
+
+.description {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.paymentNote {
+  max-width: 320px;
+  color: #9ea3ad;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.content a {
+  color: var(--color-primary);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.purchaseRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quantityControl button,
+.quantityControl span {
+  width: 34px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+}
+
+.quantityControl button {
+  border: 0;
+  background: #ffffff;
+  color: #6f7280;
+  font-size: 1rem;
+}
+
+.quantityControl span {
+  border-inline: 1px solid var(--color-border);
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.buyButton {
+  min-width: 190px;
+  min-height: 32px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--color-accent);
+  color: #1e153d;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 16px;
+  }
+
+  .modal {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px;
+  }
+
+  .media {
+    min-height: 240px;
+    padding-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid #d9dbe3;
+    padding-bottom: 18px;
+  }
+
+  .purchaseRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buyButton {
+    width: 100%;
+  }
+}

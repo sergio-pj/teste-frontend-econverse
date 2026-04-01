@@ -1,0 +1,16 @@
+.pageShell {
+  overflow-x: hidden;
+}
+
+.main {
+  display: grid;
+  gap: 48px;
+  padding-bottom: 72px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    gap: 28px;
+    padding-bottom: 48px;
+  }
+}

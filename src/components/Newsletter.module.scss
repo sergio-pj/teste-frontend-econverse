@@ -1,0 +1,80 @@
+.newsletter {
+  width: min(calc(100% - 32px), var(--container));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 28px;
+  padding: 34px 40px;
+  border-radius: 28px 28px 0 0;
+  background: linear-gradient(135deg, #2a174d 0%, #20103c 100%);
+  color: white;
+}
+
+.copy {
+  display: grid;
+  gap: 10px;
+}
+
+.copy h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  line-height: 1;
+}
+
+.copy p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-content: start;
+}
+
+.form input {
+  min-height: 48px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.form button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--color-accent);
+  color: #1f153c;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.checkbox {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.9rem;
+}
+
+.checkbox input {
+  min-height: auto;
+}
+
+@media (max-width: 900px) {
+  .newsletter {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    width: 100%;
+    padding: 28px 16px;
+    border-radius: 0;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
