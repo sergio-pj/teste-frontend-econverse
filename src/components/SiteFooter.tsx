@@ -6,7 +6,7 @@ import styles from './SiteFooter.module.scss';
 const footerColumns = [
   {
     title: 'Institucional',
-    items: ['Sobre nos', 'Movimento', 'Trabalhe conosco'],
+    items: ['Sobre nós', 'Movimento', 'Trabalhe conosco'],
   },
   {
     title: 'Ajuda',
@@ -33,7 +33,7 @@ export const SiteFooter = () => {
             <span className={styles.logoAccent}>ec</span>
             <span className={styles.logoText}>onverse</span>
           </a>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Na Econverse, tecnologia e estratégia conectam marcas, pessoas e resultados.</p>
           <div className={styles.socials}>
             {socialItems.map((item) => (
               <a key={item.label} href="#" aria-label={item.label}>
@@ -57,10 +57,6 @@ export const SiteFooter = () => {
             </section>
           ))}
         </div>
-      </div>
-
-      <div className={styles.bottomBar}>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </footer>
   );

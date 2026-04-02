@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import setaDireita from '../assets/Seta direita.svg';
 import setaEsquerda from '../assets/Seta esquerda.svg';
 import { getProducts } from '../services/api';
@@ -26,12 +26,12 @@ export const ProductList = ({
   showTabs = true,
   maxItems,
 }: ProductListProps) => {
-  const carouselRef = useRef<HTMLDivElement | null>(null);
   const [products, setProducts] = useState<Product[]>(productsFallback);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -60,21 +60,28 @@ export const ProductList = ({
     setIsModalOpen(false);
   };
 
-  const scrollCarousel = (direction: 'left' | 'right') => {
-    const carousel = carouselRef.current;
+  const visibleCount = typeof maxItems === 'number' ? maxItems : Math.min(4, products.length);
+  const maxStartIndex = Math.max(0, products.length - visibleCount);
 
-    if (!carousel) {
+  useEffect(() => {
+    setStartIndex(0);
+  }, [products, visibleCount]);
+
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (products.length <= visibleCount) {
       return;
     }
 
-    const offset = carousel.clientWidth * 0.88;
-    carousel.scrollBy({
-      left: direction === 'right' ? offset : -offset,
-      behavior: 'smooth',
+    setStartIndex((current) => {
+      if (direction === 'right') {
+        return current >= maxStartIndex ? 0 : current + 1;
+      }
+
+      return current <= 0 ? maxStartIndex : current - 1;
     });
   };
 
-  const visibleProducts = typeof maxItems === 'number' ? products.slice(0, maxItems) : products;
+  const visibleProducts = products.slice(startIndex, startIndex + visibleCount);
 
   return (
     <section id={sectionId} className={styles.section} aria-labelledby={`${sectionId}-title`}>
@@ -105,7 +112,7 @@ export const ProductList = ({
             <img src={setaEsquerda} alt="" loading="lazy" />
           </button>
 
-          <div ref={carouselRef} className={styles.viewport}>
+          <div className={styles.viewport}>
             <div className={styles.grid}>
               {visibleProducts.map((product) => (
                 <ProductCard key={product.id} product={product} onSelect={handleSelectProduct} />

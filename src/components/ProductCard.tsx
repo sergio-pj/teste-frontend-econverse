@@ -1,6 +1,6 @@
-import celularVitrine from '../assets/celular-vitrine.svg';
 import type { Product } from '../types/product';
 import { formatPrice } from '../services/api';
+import { resolveProductPhoto } from '../services/productImage';
 import styles from './ProductCard.module.scss';
 
 interface ProductCardProps {
@@ -15,12 +15,13 @@ const buildInstallmentText = (price: number): string => {
 
 export const ProductCard = ({ product, onSelect }: ProductCardProps) => {
   const previousPrice = product.price * 1.18;
+  const photoSrc = resolveProductPhoto(product.productName, product.photo);
 
   return (
     <article className={styles.card}>
       <button type="button" className={styles.content} onClick={() => onSelect(product)}>
         <div className={styles.imageWrap}>
-          <img src={celularVitrine} alt={product.productName} loading="lazy" />
+          <img src={photoSrc} alt={product.productName} loading="lazy" />
         </div>
 
         <div className={styles.info}>

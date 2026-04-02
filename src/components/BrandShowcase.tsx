@@ -1,3 +1,4 @@
+import econverseCabecalho from '../assets/econversecabeçalho.svg';
 import { SectionTitle } from './SectionTitle';
 import styles from './BrandShowcase.module.scss';
 
@@ -11,8 +12,7 @@ export const BrandShowcase = () => {
         {brands.map((brand) => (
           <article key={brand} className={styles.badge}>
             <span className={styles.logo}>
-              <span className={styles.logoAccent}>ec</span>
-              <span className={styles.logoText}>onverse</span>
+              <img src={econverseCabecalho} alt="Econverse" loading="lazy" />
             </span>
           </article>
         ))}

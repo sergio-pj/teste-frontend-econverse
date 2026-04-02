@@ -17,7 +17,7 @@ export const PartnerBanners = ({ sectionId }: PartnerBannersProps) => {
             <div className={styles.content}>
               <span className={styles.tag}>Parceiros</span>
               <h2>Confira os nossos parceiros</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>Na Econverse, grandes resultados nascem de parcerias que impulsionam grandes inovacões.</p>
               <a href="#newsletter">Confira</a>
             </div>
           </article>

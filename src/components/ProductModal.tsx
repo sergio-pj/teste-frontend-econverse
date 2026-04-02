@@ -1,6 +1,6 @@
-import celularVitrine from '../assets/celular-vitrine.svg';
 import { useEffect, useState } from 'react';
 import { formatPrice } from '../services/api';
+import { resolveProductPhoto } from '../services/productImage';
 import type { Product } from '../types/product';
 import styles from './ProductModal.module.scss';
 
@@ -37,6 +37,7 @@ export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) =>
   }
 
   const previousPrice = product.price * 1.18;
+  const photoSrc = resolveProductPhoto(product.productName, product.photo);
 
   const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
@@ -52,7 +53,7 @@ export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) =>
         </button>
 
         <div className={styles.media}>
-          <img src={celularVitrine} alt={product.productName} loading="lazy" />
+          <img src={photoSrc} alt={product.productName} loading="lazy" />
         </div>
 
         <div className={styles.content}>
@@ -60,7 +61,7 @@ export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) =>
           <span className={styles.previousPrice}>{formatPrice(previousPrice)}</span>
           <strong>{formatPrice(product.price)}</strong>
           <p className={styles.description}>{product.description}</p>
-          <p className={styles.paymentNote}>Many desktop publishing packages and web page editors now use</p>
+          <p className={styles.paymentNote}>Tecnologia premium com curadoria Econverse para elevar sua experiencia.</p>
           <a href="#produtos">Veja mais detalhes do produto</a>
 
           <div className={styles.purchaseRow}>
